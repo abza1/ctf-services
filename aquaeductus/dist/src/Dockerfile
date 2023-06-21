@@ -24,7 +24,7 @@ RUN GOOS=linux GOARCH=amd64 CGO_ENABLED=1 go build -ldflags="-s -w" -o aquaeduct
 ##########################################################################################################
 # Final
 ##########################################################################################################
-FROM debian:bullseye-slim AS final
+FROM debian:bookworm AS final
 
 RUN apt-get update \
  && apt-get install -y wget tar \
