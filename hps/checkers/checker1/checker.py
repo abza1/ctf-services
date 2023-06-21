@@ -106,7 +106,7 @@ class HPSChecker1(checkerlib.BaseChecker):
             client = self.get_mqtt_connection()
         except Exception as e:
             logging.exception('could not connect to mqtt')
-            return CheckResult.FAULTY, 'could not connect to mqtt'
+            return CheckResult.DOWN, 'could not connect to mqtt'
         data = self.generate_data(tick)
         resp = client.publish("smartmeter/commands", json.dumps({"command": "readings", "data": data}))
         resp.wait_for_publish(timeout=self.timeout)
