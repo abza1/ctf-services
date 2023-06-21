@@ -5,6 +5,16 @@ how it works. Here is some general information to get you started.
 If you want to use the `docker-compose.yml` for local testing, make
 sure to have a SocketCAN interface `vcan0` running on your machine.
 
+Run the following commands to enable `vcan0` interface on ubuntu server:
+```sh
+sudo apt-get install -y linux-modules-extra-$(uname -r)
+sudo modprobe vcan
+sudo ip link add dev vcan0 type vcan
+sudo ip link set up vcan0
+ip addr | grep "can"
+```
+
+
 ## Proof of Work
 
 A lot of things are gated behind a proof of work. The proof of work is

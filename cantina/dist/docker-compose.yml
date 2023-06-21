@@ -14,7 +14,6 @@ services:
   cantina-keyserver:
     build: ./keyserver
     network_mode: "host" # Needs a SocketCAN interface on host
-    network_mode: "host" # Needs a SocketCAN interface on host
     environment:
       CAN_IF: "vcan0"
       DATA_DIR: "/data"
